@@ -14,7 +14,7 @@ To now encrypt your plaintext ```examplePassword```, you just need to call .Encr
 Also, you need some salt. 
 
 Salt is some data/text that you most of the time can store less securely (e.g. a username). 
-But even something like an email address or a randomly genereated string/byte[] is ok, as long as its unique and can be permanently assigned to the password/data. 
+But even something like an email address or a randomly genereated string/byte array is ok, as long as its unique and can be permanently assigned to the password/data. 
 
 The salt is passed on together with the password in the .EncryptPassword() function
 
@@ -29,3 +29,27 @@ encryptedExample.EncryptPassword(examplePassword, username);
 ```
 
 Now your ```encryptedExample``` has a property called Hash (```encryptedExample.Hash```) which holds a byte-array.
+The Hash can be stored in your DB, or whatever you want to do with your encrypted data, and can not be directly decrypted. For that you have to use ```.CheckPassword()``` function.
+This function compares to byte array to check if they are the same. So, to check if e.g. a user has entered the correct password,
+you would encrypt the newly entered password with the same salt as the original one (thats why its got to be unique and identifiable).
+The new byte array can than be compared with the function, which returns a bool if the password is correct.
+```
+//Encrypt the newly entered password to get the byte array
+string secondExample = "IAmANewlyEnteredPassword"
+
+EncryptedPassword enteredPassword = new EncryptedPassword();
+enteredPassword.EncryptPassword(secondExample, username);
+
+Console.WriteLine("Is your entered Password correct: " + encryptedExample.CheckPassword(enteredPassword));
+//This example will return false, because the passwords dont match (IAmAPassword vs IAmANewlyEnteredPassword)
+```
+
+## 2. Manual Encryption and Hashing
+This method is for more experienced Users and all who want to seperate the byte array creation, encrypting and hashing.
+To´provide these options, EasyHashing provides the EHService class, which contains all the methods that you need. 
+Below they are all explained in the order that you would need them for the upper example to work.
+
+#### 1. ToByte()
+```.Tobyte array``` takes one OR two strings and puts them in one byte array. 
+
+
