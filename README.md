@@ -1,2 +1,2 @@
 # EasyHashing
-somethng
+Documentation is in the EasyHashing folder.
