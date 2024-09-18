@@ -8,13 +8,10 @@ namespace EasyHashing
 {
     public class EncryptedPassword
     {
-        string Name {  get; set; }
+        public byte[] Hash {  get; set; }
 
-        byte[] Hash {  get; set; }
-
-        public EncryptedPassword(string name)
+        public EncryptedPassword()
         {
-            name = Name;
         }
 
         public void EncryptPassword(string pwPlain, string salt)
