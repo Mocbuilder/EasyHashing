@@ -50,6 +50,42 @@ To´provide these options, EasyHashing provides the EHService class, which contai
 Below they are all explained in the order that you would need them for the upper example to work.
 
 #### 1. ToByte()
-```.Tobyte array``` takes one OR two strings and puts them in one byte array. 
+```.ToByte()``` takes one OR two strings and puts them in one byte array. 
+
+#### 2. .GenerateSaltedHash()
+```.GenerateSaltedHash()``` takes two byte arrays, first the password and then the salt and returns one hashed and encrpted byte array.
+
+#### 3. .CompareByteArrays()
+```.CompareByteArrays()``` takes two byte arrays and compares if they are identical and returns a bool. If this is true, it means that the same string(s) are the basis of them, if the same algorithm for hashing and encryting was used. Practicaly you can hash and encrypt the user-entered password to them compare it to the hash that you have stored. If they are the same, the passwords match.
+
+#### Example:
+An example of the one- and two-string-salt methods.
+```
+//Example for one string, typical Pw/Un combination
+string username = "User1"
+string password = "pw1"
+
+EHSerive ehs = new EHService();
+
+byte[] salt = ehs.ToByte[username];
+byte[] pwAsByte = ehs.ToByte[password]
+
+//Get byte arrays for password and salt, then generate the hash
+
+byte[] Hash = ehs.GenerateSaltedHash(pwAsByte, salt);
+
+//Example for two strings, e.g. Pw and Un/Email for the salt, which can make it more secure
+string username = "User1"
+string password = "pw1"
+string email = "user1@example.com"
+
+EHSerive ehs = new EHService();
+
+byte[] salt = ehs.ToByte(username, email);
+byte[] pwAsByte = ehs.ToByte(password)
+
+//Get byte arrays, with salt being a combination of Un/Email.
+//Continue like above
+```
 
 
