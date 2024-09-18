@@ -28,4 +28,4 @@ EncryptedPassword encryptedExample = new EncryptedPassword();
 encryptedExample.EncryptPassword(examplePassword, username);
 ```
 
-Now your ```encryptedExample``` has a property called Hash (```encryptedExample.Hash```) which holds a byte-array
+Now your ```encryptedExample``` has a property called Hash (```encryptedExample.Hash```) which holds a byte-array.
