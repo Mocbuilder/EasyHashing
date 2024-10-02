@@ -1,10 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>EasyHashing</Title>
+    <Authors>Mocbuilder</Authors>
+    <Description>EasyHashing is a fast and simple solution for encrypting and hashing string data for storage, transfer and more.</Description>
+    <RepositoryUrl>https://github.com/Mocbuilder/EasyHashing</RepositoryUrl>
+    <PackageReadmeFile>Documentation.md</PackageReadmeFile>
+    <PackageTags>hash; hashing; encrypting; easy; simple;</PackageTags>
+    <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+    <PackageLicenseExpression>MIT-0</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="Documentation.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
